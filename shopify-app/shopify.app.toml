@@ -1,0 +1,11 @@
+name = "QuickList AI"
+client_id = ""
+
+[access_scopes]
+scopes = "read_products,write_products"
+
+[auth]
+redirect_urls = ["https://localhost/auth/callback"]
+
+[webhooks]
+api_version = "2024-10"

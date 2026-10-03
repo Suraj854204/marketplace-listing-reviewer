@@ -1,0 +1,29 @@
+{
+  "name": "quicklist-ai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "NODE_ENV=production next build",
+    "build:static": "mv src/app/api src/app/_api_tmp && mv src/app/auth/callback src/app/auth/_callback_tmp && mv src/app/global-error.tsx src/app/_global-error.tsx.bak && mv src/app/not-found.tsx src/app/_not-found.tsx.bak && STATIC_EXPORT=true NEXT_PUBLIC_STATIC_EXPORT=true next build || true; mv src/app/_api_tmp src/app/api && mv src/app/auth/_callback_tmp src/app/auth/callback && mv src/app/_global-error.tsx.bak src/app/global-error.tsx && mv src/app/_not-found.tsx.bak src/app/not-found.tsx && test -f out/index.html",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
+    "@supabase/ssr": "^0.9.0",
+    "@supabase/supabase-js": "^2.99.3",
+    "@tailwindcss/postcss": "^4.2.2",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vercel/analytics": "^2.0.1",
+    "next": "^16.2.1",
+    "postcss": "^8.5.8",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "stripe": "^20.4.1",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3"
+  }
+}

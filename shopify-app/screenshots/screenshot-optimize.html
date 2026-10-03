@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>QuickList AI - Optimize Product</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #F6F6F7;
+    color: #202223;
+    width: 1280px;
+    min-height: 800px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .topbar {
+    background: #FFFFFF;
+    border-bottom: 1px solid #E1E3E5;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { display: flex; align-items: center; gap: 12px; }
+  .topbar-logo {
+    width: 32px; height: 32px; background: #008060; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 14px;
+  }
+  .topbar-title { font-size: 17px; font-weight: 600; color: #202223; }
+  .topbar-right { display: flex; align-items: center; gap: 16px; }
+  .topbar-plan {
+    font-size: 13px; color: #6D7175; background: #F6F6F7; padding: 4px 12px;
+    border-radius: 20px; font-weight: 500;
+  }
+  .topbar-avatar {
+    width: 30px; height: 30px; border-radius: 50%; background: #5C6AC4;
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600;
+  }
+  .main { padding: 24px 32px; max-width: 1216px; }
+  .back-row { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+  .back-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 14px; color: #5C6AC4; font-weight: 500; cursor: pointer;
+    background: none; border: none; padding: 0;
+  }
+  .back-btn svg { width: 16px; height: 16px; }
+  .page-title { font-size: 24px; font-weight: 600; margin-bottom: 20px; color: #202223; }
+  .top-section { display: grid; grid-template-columns: 1fr 320px; gap: 20px; margin-bottom: 24px; }
+  .card {
+    background: #FFFFFF; border-radius: 12px; padding: 20px 24px;
+    border: 1px solid #E1E3E5;
+  }
+  .card-title { font-size: 15px; font-weight: 600; margin-bottom: 16px; color: #202223; }
+  label { display: block; font-size: 13px; font-weight: 500; color: #202223; margin-bottom: 6px; }
+  .form-group { margin-bottom: 16px; }
+  input[type="text"], textarea {
+    width: 100%; padding: 10px 12px; border: 1px solid #C9CCCF; border-radius: 8px;
+    font-size: 14px; font-family: inherit; color: #202223; background: #fff;
+    outline: none; transition: border-color 0.15s;
+  }
+  input[type="text"]:focus, textarea:focus { border-color: #5C6AC4; }
+  textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+  .marketplace-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .marketplace-opt {
+    border: 2px solid #E1E3E5; border-radius: 10px; padding: 14px 16px;
+    cursor: pointer; text-align: center; font-size: 14px; font-weight: 500;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .marketplace-opt.active { border-color: #008060; background: #E3F1DF; }
+  .marketplace-opt .mp-icon { font-size: 22px; margin-bottom: 4px; }
+  .btn-optimize {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 8px;
+    padding: 10px 24px; background: #008060; color: #fff; border: none;
+    border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;
+  }
+  .btn-optimize:hover { background: #006e52; }
+  .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .comp-card {
+    background: #FFFFFF; border-radius: 12px; padding: 20px 24px;
+    border: 1px solid #E1E3E5;
+  }
+  .comp-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .comp-label { font-size: 15px; font-weight: 600; }
+  .comp-badge {
+    font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px;
+  }
+  .comp-badge.before { background: #F1F2F3; color: #6D7175; }
+  .comp-badge.after { background: #E3F1DF; color: #1A7F37; }
+  .comp-section { margin-bottom: 14px; }
+  .comp-section-label { font-size: 12px; font-weight: 600; color: #6D7175; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .comp-text { font-size: 14px; line-height: 1.6; color: #202223; }
+  .comp-text.subdued { color: #6D7175; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 500;
+    background: #F1F2F3; color: #6D7175;
+  }
+  .tag.new { background: #E3F1DF; color: #1A7F37; }
+  .metrics-row { display: flex; gap: 16px; margin-top: 20px; }
+  .metric-card {
+    flex: 1; background: #FFFFFF; border-radius: 12px; padding: 16px 20px;
+    border: 1px solid #E1E3E5; text-align: center;
+  }
+  .metric-value { font-size: 24px; font-weight: 700; color: #008060; }
+  .metric-label { font-size: 12px; color: #6D7175; margin-top: 4px; font-weight: 500; }
+  .section-label { font-size: 16px; font-weight: 600; margin-bottom: 14px; color: #202223; }
+  .highlight { background: #FFFBE6; padding: 1px 3px; border-radius: 3px; }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-logo">Q</div>
+      <span class="topbar-title">QuickList AI</span>
+    </div>
+    <div class="topbar-right">
+      <span class="topbar-plan">Free Plan</span>
+      <div class="topbar-avatar">JD</div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="back-row">
+      <button class="back-btn">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"/></svg>
+        Back to Dashboard
+      </button>
+    </div>
+    <h1 class="page-title">Optimize Product</h1>
+
+    <div class="top-section">
+      <div class="card">
+        <div class="card-title">Product Details</div>
+        <div class="form-group">
+          <label>Product Title</label>
+          <input type="text" value="Vintage Leather Messenger Bag">
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea rows="3">Nice leather bag. Good for carrying stuff. Brown color. Has a strap.</textarea>
+        </div>
+        <div class="form-group">
+          <label>Tags</label>
+          <input type="text" value="bag, leather, brown">
+        </div>
+        <button class="btn-optimize">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v14M1 8h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+          Optimize with AI
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Target Marketplace</div>
+        <div class="marketplace-grid">
+          <div class="marketplace-opt active">
+            <div class="mp-icon">&#128230;</div>
+            Amazon
+          </div>
+          <div class="marketplace-opt">
+            <div class="mp-icon">&#127912;</div>
+            Etsy
+          </div>
+          <div class="marketplace-opt">
+            <div class="mp-icon">&#128722;</div>
+            Shopify
+          </div>
+          <div class="marketplace-opt">
+            <div class="mp-icon">&#127760;</div>
+            eBay
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Before / After Comparison</div>
+    <div class="comparison">
+      <div class="comp-card">
+        <div class="comp-header">
+          <span class="comp-label">Before</span>
+          <span class="comp-badge before">Original</span>
+        </div>
+        <div class="comp-section">
+          <div class="comp-section-label">Title</div>
+          <div class="comp-text subdued">Vintage Leather Messenger Bag</div>
+        </div>
+        <div class="comp-section">
+          <div class="comp-section-label">Description</div>
+          <div class="comp-text subdued">Nice leather bag. Good for carrying stuff. Brown color. Has a strap.</div>
+        </div>
+        <div class="comp-section">
+          <div class="comp-section-label">Tags</div>
+          <div class="tags">
+            <span class="tag">bag</span>
+            <span class="tag">leather</span>
+            <span class="tag">brown</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-card" style="border-color:#008060;">
+        <div class="comp-header">
+          <span class="comp-label">After</span>
+          <span class="comp-badge after">Optimized</span>
+        </div>
+        <div class="comp-section">
+          <div class="comp-section-label">Title</div>
+          <div class="comp-text">Vintage Genuine Leather Messenger Bag for Men &amp; Women - Crossbody Satchel for Laptop, Work &amp; Travel</div>
+        </div>
+        <div class="comp-section">
+          <div class="comp-section-label">Description</div>
+          <div class="comp-text">Crafted from premium full-grain leather, this vintage-style messenger bag combines timeless aesthetics with everyday functionality. Features an adjustable crossbody strap, padded 14" laptop compartment, and multiple interior pockets. Perfect for professionals, students, and travelers who value quality craftsmanship.</div>
+        </div>
+        <div class="comp-section">
+          <div class="comp-section-label">Tags</div>
+          <div class="tags">
+            <span class="tag">bag</span>
+            <span class="tag">leather</span>
+            <span class="tag">brown</span>
+            <span class="tag new">messenger bag</span>
+            <span class="tag new">crossbody</span>
+            <span class="tag new">laptop bag</span>
+            <span class="tag new">vintage leather</span>
+            <span class="tag new">satchel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-value">+41%</div>
+        <div class="metric-label">SEO Score Improvement</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">+18%</div>
+        <div class="metric-label">Estimated CTR Boost</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">8 &rarr; 13</div>
+        <div class="metric-label">Keywords Targeted</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">A+</div>
+        <div class="metric-label">Listing Quality</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

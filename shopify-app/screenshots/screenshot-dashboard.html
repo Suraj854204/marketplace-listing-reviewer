@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>QuickList AI - Dashboard</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #F6F6F7;
+    color: #202223;
+    width: 1280px;
+    min-height: 800px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .topbar {
+    background: #FFFFFF;
+    border-bottom: 1px solid #E1E3E5;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { display: flex; align-items: center; gap: 12px; }
+  .topbar-logo {
+    width: 32px; height: 32px; background: #008060; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 14px;
+  }
+  .topbar-title { font-size: 17px; font-weight: 600; color: #202223; }
+  .topbar-right { display: flex; align-items: center; gap: 16px; }
+  .topbar-plan {
+    font-size: 13px; color: #6D7175; background: #F6F6F7; padding: 4px 12px;
+    border-radius: 20px; font-weight: 500;
+  }
+  .topbar-avatar {
+    width: 30px; height: 30px; border-radius: 50%; background: #5C6AC4;
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600;
+  }
+  .main { padding: 24px 32px; max-width: 1216px; }
+  .page-title { font-size: 24px; font-weight: 600; margin-bottom: 20px; color: #202223; }
+  .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .stat-card {
+    background: #FFFFFF; border-radius: 12px; padding: 20px 24px;
+    border: 1px solid #E1E3E5;
+  }
+  .stat-label { font-size: 13px; color: #6D7175; font-weight: 500; margin-bottom: 8px; }
+  .stat-value { font-size: 28px; font-weight: 700; color: #202223; }
+  .stat-sub { font-size: 13px; color: #008060; font-weight: 500; margin-top: 4px; }
+  .stat-sub.purple { color: #5C6AC4; }
+  .section-title { font-size: 16px; font-weight: 600; margin-bottom: 14px; color: #202223; }
+  .actions-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+  .action-card {
+    background: #FFFFFF; border-radius: 12px; padding: 20px 24px;
+    border: 1px solid #E1E3E5; cursor: pointer; transition: box-shadow 0.15s;
+  }
+  .action-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .action-icon {
+    width: 40px; height: 40px; border-radius: 10px; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: center; font-size: 20px;
+  }
+  .action-icon.green { background: #E3F1DF; }
+  .action-icon.indigo { background: #EAE8FF; }
+  .action-icon.gray { background: #F1F2F3; }
+  .action-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .action-desc { font-size: 13px; color: #6D7175; line-height: 1.5; }
+  .two-col { display: grid; grid-template-columns: 1fr 340px; gap: 20px; }
+  .card {
+    background: #FFFFFF; border-radius: 12px; padding: 20px 24px;
+    border: 1px solid #E1E3E5;
+  }
+  .recent-list { list-style: none; }
+  .recent-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 0; border-bottom: 1px solid #F1F2F3;
+  }
+  .recent-item:last-child { border-bottom: none; }
+  .recent-left { display: flex; align-items: center; gap: 12px; }
+  .recent-thumb {
+    width: 40px; height: 40px; border-radius: 8px; background: #F1F2F3;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .recent-name { font-size: 14px; font-weight: 500; }
+  .recent-market { font-size: 12px; color: #6D7175; margin-top: 2px; }
+  .badge {
+    display: inline-flex; align-items: center; padding: 3px 10px;
+    border-radius: 20px; font-size: 12px; font-weight: 600;
+  }
+  .badge-green { background: #E3F1DF; color: #1A7F37; }
+  .plan-card-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .plan-card-sub { font-size: 13px; color: #6D7175; margin-bottom: 14px; }
+  .progress-track {
+    width: 100%; height: 8px; background: #E1E3E5; border-radius: 4px;
+    overflow: hidden; margin-bottom: 8px;
+  }
+  .progress-fill { height: 100%; background: #008060; border-radius: 4px; }
+  .progress-label { font-size: 13px; color: #6D7175; }
+  .progress-label strong { color: #202223; }
+  .btn-upgrade {
+    display: inline-block; margin-top: 14px; padding: 8px 20px;
+    background: #008060; color: #fff; border: none; border-radius: 8px;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+  }
+  .btn-upgrade:hover { background: #006e52; }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-logo">Q</div>
+      <span class="topbar-title">QuickList AI</span>
+    </div>
+    <div class="topbar-right">
+      <span class="topbar-plan">Free Plan</span>
+      <div class="topbar-avatar">JD</div>
+    </div>
+  </div>
+
+  <div class="main">
+    <h1 class="page-title">Dashboard</h1>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">Products Optimized</div>
+        <div class="stat-value">127</div>
+        <div class="stat-sub">+12 this week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg. Improvement</div>
+        <div class="stat-value">+34%</div>
+        <div class="stat-sub purple">SEO score increase</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Time Saved</div>
+        <div class="stat-value">18h</div>
+        <div class="stat-sub">This month</div>
+      </div>
+    </div>
+
+    <div class="section-title">Quick Actions</div>
+    <div class="actions-row">
+      <div class="action-card">
+        <div class="action-icon green">&#9889;</div>
+        <div class="action-title">Optimize Product</div>
+        <div class="action-desc">Select a product and generate optimized listings instantly.</div>
+      </div>
+      <div class="action-card">
+        <div class="action-icon indigo">&#128218;</div>
+        <div class="action-title">Bulk Optimize</div>
+        <div class="action-desc">Optimize multiple products at once with a single click.</div>
+      </div>
+      <div class="action-card">
+        <div class="action-icon gray">&#9881;</div>
+        <div class="action-title">Settings</div>
+        <div class="action-desc">Configure your API key, brand voice, and preferences.</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="section-title" style="margin-bottom:12px;">Recent Optimizations</div>
+        <ul class="recent-list">
+          <li class="recent-item">
+            <div class="recent-left">
+              <div class="recent-thumb">&#128092;</div>
+              <div>
+                <div class="recent-name">Vintage Leather Messenger Bag</div>
+                <div class="recent-market">Amazon &middot; 2 hours ago</div>
+              </div>
+            </div>
+            <span class="badge badge-green">+41%</span>
+          </li>
+          <li class="recent-item">
+            <div class="recent-left">
+              <div class="recent-thumb">&#128085;</div>
+              <div>
+                <div class="recent-name">Organic Cotton T-Shirt</div>
+                <div class="recent-market">Etsy &middot; 5 hours ago</div>
+              </div>
+            </div>
+            <span class="badge badge-green">+28%</span>
+          </li>
+          <li class="recent-item">
+            <div class="recent-left">
+              <div class="recent-thumb">&#127911;</div>
+              <div>
+                <div class="recent-name">Wireless Bluetooth Earbuds</div>
+                <div class="recent-market">Shopify &middot; Yesterday</div>
+              </div>
+            </div>
+            <span class="badge badge-green">+35%</span>
+          </li>
+          <li class="recent-item">
+            <div class="recent-left">
+              <div class="recent-thumb">&#9749;</div>
+              <div>
+                <div class="recent-name">Handmade Ceramic Coffee Mug</div>
+                <div class="recent-market">Etsy &middot; Yesterday</div>
+              </div>
+            </div>
+            <span class="badge badge-green">+22%</span>
+          </li>
+          <li class="recent-item">
+            <div class="recent-left">
+              <div class="recent-thumb">&#129506;</div>
+              <div>
+                <div class="recent-name">Yoga Mat Premium</div>
+                <div class="recent-market">Amazon &middot; 2 days ago</div>
+              </div>
+            </div>
+            <span class="badge badge-green">+31%</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card" style="align-self:start;">
+        <div class="plan-card-title">Plan Usage</div>
+        <div class="plan-card-sub">Free Plan &middot; Resets daily</div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width:60%;"></div>
+        </div>
+        <div class="progress-label"><strong>3</strong> of <strong>5</strong> daily optimizations used</div>
+        <button class="btn-upgrade">Upgrade to Pro</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Listing Generator — Optimize Etsy, Amazon & eBay Jewelry Listings | QuickList AI</title>
+    <meta name="description" content="Free AI jewelry listing generator. Create optimized product descriptions for Etsy, Amazon, Shopify, and eBay jewelry listings in seconds. Better titles, tags, and SEO.">
+    <meta property="og:title" content="Jewelry Listing Generator — QuickList AI">
+    <meta property="og:description" content="Generate optimized jewelry listings for Etsy, Amazon, Shopify, and eBay. AI-powered titles, descriptions, and tags built for jewelry sellers.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://boudydegeer.github.io/quicklist-ai/for/jewelry.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jewelry Listing Generator — QuickList AI">
+    <meta name="twitter:description" content="AI-powered listing optimization for jewelry sellers. Etsy, Amazon, Shopify, and eBay — all from one tool.">
+    <link rel="canonical" href="https://boudydegeer.github.io/quicklist-ai/for/jewelry.html">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --navy: #0f172a;
+            --slate: #1e293b;
+            --slate-light: #334155;
+            --blue: #3b82f6;
+            --blue-hover: #2563eb;
+            --blue-glow: rgba(59, 130, 246, 0.25);
+            --white: #ffffff;
+            --gray-100: #f1f5f9;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--navy);
+            color: var(--gray-300);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            background: var(--slate);
+            border-bottom: 1px solid var(--slate-light);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+        nav .logo span { color: var(--blue); }
+        nav .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        nav .nav-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        nav .nav-links a:hover { color: var(--white); }
+        .article-container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+        }
+        h1 {
+            font-size: 2.25rem;
+            color: var(--white);
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        .article-meta {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--slate-light);
+        }
+        .tldr {
+            background: var(--slate);
+            border-left: 4px solid var(--blue);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
+        }
+        .tldr strong { color: var(--white); }
+        h2 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin: 2.5rem 0 1rem;
+        }
+        h3 {
+            font-size: 1.15rem;
+            color: var(--gray-100);
+            margin: 1.75rem 0 0.75rem;
+        }
+        p { margin-bottom: 1.25rem; }
+        strong { color: var(--white); }
+        ul, ol {
+            margin: 0 0 1.25rem 1.5rem;
+        }
+        li { margin-bottom: 0.5rem; }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        em { color: var(--gray-400); font-style: italic; }
+        hr {
+            border: none;
+            border-top: 1px solid var(--slate-light);
+            margin: 2.5rem 0;
+        }
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0 2rem;
+        }
+        .before-after .example {
+            background: var(--slate);
+            border-radius: 8px;
+            padding: 1.25rem;
+            border: 1px solid var(--slate-light);
+        }
+        .before-after .example.after {
+            border-color: var(--blue);
+        }
+        .before-after .example h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+        .before-after .example.before h4 { color: #ef4444; }
+        .before-after .example.after h4 { color: #22c55e; }
+        .before-after .example p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: var(--gray-300);
+        }
+        .cta-box {
+            background: linear-gradient(135deg, var(--slate), var(--slate-light));
+            border: 1px solid var(--blue);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .cta-box h2 {
+            margin-top: 0;
+            font-size: 1.75rem;
+        }
+        .cta-box p {
+            color: var(--gray-400);
+            max-width: 520px;
+            margin: 0.75rem auto 1.5rem;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--blue);
+            color: var(--white);
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+        .cta-btn:hover {
+            background: var(--blue-hover);
+            box-shadow: 0 0 20px var(--blue-glow);
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray-500);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--slate-light);
+        }
+        @media (max-width: 640px) {
+            h1 { font-size: 1.65rem; }
+            .article-container { padding: 2rem 1rem 3rem; }
+            nav { padding: 0.75rem 1rem; flex-wrap: wrap; gap: 0.5rem; }
+            nav .nav-links { gap: 1rem; }
+            .before-after { grid-template-columns: 1fr; }
+        }
+    </style>
+    <link rel="icon" href="/quicklist-ai/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Jewelry Listing Generator — Optimize Etsy, Amazon & eBay Jewelry Listings",
+        "description": "Free AI jewelry listing generator. Create optimized product descriptions for Etsy, Amazon, Shopify, and eBay jewelry listings in seconds.",
+        "datePublished": "2026-03-24",
+        "author": {
+            "@type": "Organization",
+            "name": "QuickList AI"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "QuickList AI",
+            "url": "https://boudydegeer.github.io/quicklist-ai/"
+        },
+        "mainEntityOfPage": "https://boudydegeer.github.io/quicklist-ai/for/jewelry.html"
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="https://boudydegeer.github.io/quicklist-ai/" class="logo">Quick<span>List</span> AI</a>
+        <div class="nav-links">
+            <a href="https://boudydegeer.github.io/quicklist-ai/blog/">Blog</a>
+            <a href="https://boudydegeer.github.io/quicklist-ai/">Home</a>
+            <a href="https://boudydegeer.github.io/quicklist-ai/generate" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Try Free &rarr;</a>
+        </div>
+    </nav>
+
+    <article class="article-container">
+        <h1>Jewelry Listing Generator: Create Optimized Listings That Sell</h1>
+        <div class="article-meta">By QuickList AI Team &middot; 2026</div>
+
+        <div class="tldr">
+            <strong>TL;DR:</strong> Jewelry listings need specific optimization that generic tools miss &mdash; gemstone keywords, material certifications, sizing details, and occasion-based search terms. QuickList AI generates marketplace-optimized jewelry listings for Etsy, Amazon, Shopify, and eBay simultaneously, with niche-specific keyword strategies built in.
+        </div>
+
+        <h2>Why Jewelry Listings Need Specialized Optimization</h2>
+        <p>Jewelry is one of the most competitive categories on every major marketplace. On Etsy alone, there are over 15 million jewelry listings competing for buyer attention. On Amazon, the jewelry category has some of the highest keyword competition and lowest organic click-through rates.</p>
+        <p>Generic product listing tools treat jewelry the same as electronics or home goods. But jewelry buyers search differently. They use material-specific terms ("14K gold-filled," "sterling silver 925"), gemstone names ("natural labradorite," "AAA cubic zirconia"), and occasion-driven phrases ("anniversary gift for wife," "bridesmaid proposal gift").</p>
+        <p>If your listing tool doesn't understand these search patterns, your listings are invisible to the buyers most likely to purchase.</p>
+
+        <h2>Common Jewelry Listing Mistakes</h2>
+
+        <h3>1. Vague Material Descriptions</h3>
+        <p>Saying "gold necklace" when you mean "14K gold-filled chain with lobster clasp" costs you search visibility and buyer trust. Marketplace search algorithms and buyers both want specificity.</p>
+
+        <h3>2. Missing Size and Measurement Details</h3>
+        <p>Ring sizes, chain lengths, pendant dimensions, earring drop length &mdash; these aren't optional details for jewelry. Missing measurements are the top reason for jewelry returns on Amazon, and Etsy's algorithm penalizes listings with incomplete attributes.</p>
+
+        <h3>3. Keyword Stuffing Instead of Strategic Placement</h3>
+        <p>A title like <em>"Gold Earrings Women Earrings Hoop Earrings Dangle Earrings Gift Earrings"</em> triggers over-optimization penalties on Etsy and looks unprofessional everywhere. Strategic keyword distribution across title, tags, and description performs far better.</p>
+
+        <h3>4. Ignoring Occasion-Based Keywords</h3>
+        <p>A significant percentage of jewelry purchases are gifts. If your listing doesn't include occasion keywords like "birthday gift," "valentines day gift for her," or "graduation present," you're missing high-intent search traffic.</p>
+
+        <h2>Before &amp; After: Jewelry Listing Optimization</h2>
+
+        <div class="before-after">
+            <div class="example before">
+                <h4>Before</h4>
+                <p><strong>Title:</strong> Gold Earrings Hoop Earrings Women Earrings Dangle Earrings Small Gold Hoops Gift Earrings Everyday Earrings</p>
+                <p><strong>Description:</strong> Beautiful gold earrings. These hoops are great for everyday wear. Makes a great gift. Buy now!</p>
+            </div>
+            <div class="example after">
+                <h4>After (QuickList AI)</h4>
+                <p><strong>Title:</strong> Small Gold Hoop Earrings &mdash; 14K Gold-Filled, Lightweight Everyday Hoops</p>
+                <p><strong>Description:</strong> Delicate 14K gold-filled hoop earrings designed for all-day comfort. 15mm diameter with a secure click-close mechanism. Hypoallergenic and tarnish-resistant &mdash; perfect for sensitive ears...</p>
+            </div>
+        </div>
+
+        <h2>What Makes Jewelry SEO Different by Marketplace</h2>
+
+        <h3>Etsy Jewelry Listings</h3>
+        <p>Etsy's 2026 algorithm rewards natural titles under 15 words. For jewelry, this means leading with material and style rather than cramming in gift keywords. Use all 13 tags for occasion terms, alternative names, and style descriptors. Etsy also heavily weights the "Materials" attribute field &mdash; fill it completely.</p>
+
+        <h3>Amazon Jewelry Listings</h3>
+        <p>Amazon's A9 algorithm for jewelry prioritizes backend keywords, bullet point structure, and the "About this item" section. Material type, stone type, metal stamp, and chain type should all appear in structured fields. Amazon also requires compliance with their Jewelry Quality Assurance Standards for certain materials.</p>
+
+        <h3>Shopify Jewelry Stores</h3>
+        <p>Shopify SEO for jewelry depends on meta descriptions, clean URL slugs, and structured product data. Google Shopping integration requires correct material and gemstone attributes in your product schema. Rich snippets with price and availability drive significantly higher click-through rates for jewelry searches.</p>
+
+        <h3>eBay Jewelry Listings</h3>
+        <p>eBay's Cassini search engine gives extra weight to item specifics for jewelry. Brand, metal type, stone type, setting type, and occasion fields all contribute to search ranking. Completing every item specific can increase your visibility by up to 30% compared to listings with empty fields.</p>
+
+        <h2>Keywords That Jewelry Sellers Miss</h2>
+        <p>Beyond the obvious product terms, these keyword categories drive significant search volume for jewelry:</p>
+        <ul>
+            <li><strong>Material certifications:</strong> "nickel-free," "hypoallergenic," "lead-free," "tarnish-resistant"</li>
+            <li><strong>Style movements:</strong> "minimalist jewelry," "boho jewelry," "art deco style," "cottagecore aesthetic"</li>
+            <li><strong>Recipient terms:</strong> "gift for girlfriend," "mom birthday," "bridesmaid jewelry set"</li>
+            <li><strong>Wearing context:</strong> "everyday earrings," "wedding jewelry," "office-appropriate necklace"</li>
+            <li><strong>Care and quality:</strong> "waterproof jewelry," "sweat-proof," "lifetime guarantee"</li>
+        </ul>
+
+        <h2>How QuickList AI Optimizes Jewelry Listings</h2>
+        <p>QuickList AI understands jewelry-specific search patterns across all four marketplaces. When you input your product details, it automatically:</p>
+        <ul>
+            <li>Generates natural, keyword-rich titles optimized per marketplace</li>
+            <li>Distributes material, occasion, and style keywords strategically across title, tags, and description</li>
+            <li>Includes measurement placeholders and material specifics that buyers expect</li>
+            <li>Creates platform-specific formats (Etsy tags, Amazon bullet points, Shopify meta descriptions, eBay item specifics)</li>
+            <li>Avoids keyword stuffing while maximizing search coverage</li>
+        </ul>
+
+        <div class="cta-box">
+            <h2>Try the Jewelry Listing Generator</h2>
+            <p>Generate optimized jewelry listings for Etsy, Amazon, Shopify, and eBay &mdash; free. Enter your product details and get marketplace-ready listings in seconds.</p>
+            <a href="https://boudydegeer.github.io/quicklist-ai/generate" class="cta-btn">Generate Jewelry Listings &rarr;</a>
+        </div>
+
+        <hr>
+        <p><em>QuickList AI helps jewelry sellers create optimized listings for Etsy, Amazon, Shopify, and eBay &mdash; all from one product input. No signup required for your first listings.</em></p>
+    </article>
+
+    <footer>
+        &copy; 2026 QuickList AI. All rights reserved.
+    </footer>
+</body>
+</html>

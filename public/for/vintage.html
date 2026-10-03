@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Listing Generator — Describe & Sell Vintage Items on Etsy, eBay & More | QuickList AI</title>
+    <meta name="description" content="Free AI vintage listing generator. Create optimized descriptions for vintage items on Etsy, eBay, Shopify, and Amazon. Era-specific keywords, condition grading, and cross-listing optimization.">
+    <meta property="og:title" content="Vintage Listing Generator — QuickList AI">
+    <meta property="og:description" content="Generate optimized vintage item listings for Etsy, eBay, Shopify, and Amazon. AI-powered descriptions with era-specific keywords and proper condition grading.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://boudydegeer.github.io/quicklist-ai/for/vintage.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vintage Listing Generator — QuickList AI">
+    <meta name="twitter:description" content="Listing optimization for vintage sellers. Etsy, eBay, Shopify — era-specific keywords and condition descriptions.">
+    <link rel="canonical" href="https://boudydegeer.github.io/quicklist-ai/for/vintage.html">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --navy: #0f172a;
+            --slate: #1e293b;
+            --slate-light: #334155;
+            --blue: #3b82f6;
+            --blue-hover: #2563eb;
+            --blue-glow: rgba(59, 130, 246, 0.25);
+            --white: #ffffff;
+            --gray-100: #f1f5f9;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--navy);
+            color: var(--gray-300);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav { background: var(--slate); border-bottom: 1px solid var(--slate-light); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; }
+        nav .logo { font-size: 1.25rem; font-weight: 700; color: var(--white); text-decoration: none; }
+        nav .logo span { color: var(--blue); }
+        nav .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        nav .nav-links a { color: var(--gray-400); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        nav .nav-links a:hover { color: var(--white); }
+        .article-container { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+        h1 { font-size: 2.25rem; color: var(--white); line-height: 1.3; margin-bottom: 1rem; }
+        .article-meta { color: var(--gray-500); font-size: 0.9rem; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--slate-light); }
+        .tldr { background: var(--slate); border-left: 4px solid var(--blue); padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2.5rem; font-size: 0.95rem; }
+        .tldr strong { color: var(--white); }
+        h2 { font-size: 1.5rem; color: var(--white); margin: 2.5rem 0 1rem; }
+        h3 { font-size: 1.15rem; color: var(--gray-100); margin: 1.75rem 0 0.75rem; }
+        p { margin-bottom: 1.25rem; }
+        strong { color: var(--white); }
+        ul, ol { margin: 0 0 1.25rem 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        em { color: var(--gray-400); font-style: italic; }
+        hr { border: none; border-top: 1px solid var(--slate-light); margin: 2.5rem 0; }
+        .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0 2rem; }
+        .before-after .example { background: var(--slate); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--slate-light); }
+        .before-after .example.after { border-color: var(--blue); }
+        .before-after .example h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+        .before-after .example.before h4 { color: #ef4444; }
+        .before-after .example.after h4 { color: #22c55e; }
+        .before-after .example p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--gray-300); }
+        .cta-box { background: linear-gradient(135deg, var(--slate), var(--slate-light)); border: 1px solid var(--blue); border-radius: 12px; padding: 2.5rem; text-align: center; margin: 3rem 0; }
+        .cta-box h2 { margin-top: 0; font-size: 1.75rem; }
+        .cta-box p { color: var(--gray-400); max-width: 520px; margin: 0.75rem auto 1.5rem; }
+        .cta-btn { display: inline-block; background: var(--blue); color: var(--white); padding: 0.875rem 2rem; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: background 0.2s, box-shadow 0.2s; text-decoration: none; }
+        .cta-btn:hover { background: var(--blue-hover); box-shadow: 0 0 20px var(--blue-glow); text-decoration: none; }
+        footer { text-align: center; padding: 2rem; color: var(--gray-500); font-size: 0.85rem; border-top: 1px solid var(--slate-light); }
+        @media (max-width: 640px) {
+            h1 { font-size: 1.65rem; }
+            .article-container { padding: 2rem 1rem 3rem; }
+            nav { padding: 0.75rem 1rem; flex-wrap: wrap; gap: 0.5rem; }
+            nav .nav-links { gap: 1rem; }
+            .before-after { grid-template-columns: 1fr; }
+        }
+    </style>
+    <link rel="icon" href="/quicklist-ai/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Vintage Listing Generator — Describe & Sell Vintage Items on Etsy, eBay & More",
+        "description": "Free AI vintage listing generator. Create optimized descriptions for vintage items on Etsy, eBay, Shopify, and Amazon.",
+        "datePublished": "2026-03-24",
+        "author": { "@type": "Organization", "name": "QuickList AI" },
+        "publisher": { "@type": "Organization", "name": "QuickList AI", "url": "https://boudydegeer.github.io/quicklist-ai/" },
+        "mainEntityOfPage": "https://boudydegeer.github.io/quicklist-ai/for/vintage.html"
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="https://boudydegeer.github.io/quicklist-ai/" class="logo">Quick<span>List</span> AI</a>
+        <div class="nav-links">
+            <a href="https://boudydegeer.github.io/quicklist-ai/blog/">Blog</a>
+            <a href="https://boudydegeer.github.io/quicklist-ai/">Home</a>
+            <a href="https://boudydegeer.github.io/quicklist-ai/generate" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Try Free &rarr;</a>
+        </div>
+    </nav>
+
+    <article class="article-container">
+        <h1>Vintage Listing Generator: Describe and Sell Vintage Items With the Right Keywords</h1>
+        <div class="article-meta">By QuickList AI Team &middot; 2026</div>
+
+        <div class="tldr">
+            <strong>TL;DR:</strong> Vintage listings live or die by how well you describe condition, era, and provenance. Generic listing tools don't understand that "mid-century modern teak credenza" and "old wooden dresser" describe the same item but attract completely different buyers at completely different price points. QuickList AI generates vintage listings with era-specific terminology, proper condition grading, and cross-marketplace optimization for Etsy, eBay, Shopify, and Amazon.
+        </div>
+
+        <h2>Why Vintage Descriptions Matter More Than Any Other Category</h2>
+        <p>In most e-commerce categories, the product is standardized &mdash; a buyer searching for "iPhone 15 case" knows exactly what they're getting. Vintage is the opposite. Every item is unique, and the <strong>description is the product</strong>. A vague description doesn't just hurt your SEO; it kills buyer confidence and your ability to command fair pricing.</p>
+        <p>The difference between a $50 sale and a $500 sale often comes down to whether your listing uses the right era terminology, accurately grades condition, and tells the item's story in a way that justifies the price.</p>
+
+        <h2>The Art of Describing Condition</h2>
+        <p>Condition descriptions are the single most important element of vintage listings. Buyers need to trust your assessment before they'll purchase an item they can't physically inspect.</p>
+
+        <h3>Standard Condition Grading</h3>
+        <ul>
+            <li><strong>Mint / New Old Stock (NOS):</strong> Never used, in original packaging if applicable. Extremely rare for truly vintage items.</li>
+            <li><strong>Excellent:</strong> Minimal signs of age. No chips, cracks, stains, or repairs. Fully functional with original components.</li>
+            <li><strong>Very Good:</strong> Light wear consistent with age. Minor surface scratches or slight patina. No structural issues.</li>
+            <li><strong>Good:</strong> Moderate wear. May have small chips, light staining, or surface scratches. Structurally sound and fully functional.</li>
+            <li><strong>Fair:</strong> Noticeable wear, possible repairs, or missing minor components. Still usable and displayable.</li>
+        </ul>
+        <p>Always be specific about any flaws: <em>"Small chip on base rim (3mm), not visible when displayed"</em> builds more trust than <em>"minor imperfections."</em></p>
+
+        <h3>Era-Specific Keywords That Drive Sales</h3>
+        <p>Vintage buyers search by era and design movement. Using the correct terminology is critical for both search visibility and credibility:</p>
+        <ul>
+            <li><strong>1920s-30s:</strong> Art Deco, Machine Age, Depression Era, Streamline Moderne</li>
+            <li><strong>1940s-50s:</strong> Mid-Century, Atomic Age, Post-War, Eames Era</li>
+            <li><strong>1960s-70s:</strong> Space Age, Pop Art, Mod, Bohemian, Danish Modern</li>
+            <li><strong>1980s-90s:</strong> Memphis Design, Postmodern, Y2K aesthetic, Maximalist</li>
+        </ul>
+        <p>A listing that says "1960s Danish Modern teak sideboard" will rank for completely different (and higher-value) searches than "old wooden cabinet."</p>
+
+        <h2>Before &amp; After: Vintage Listing Optimization</h2>
+
+        <div class="before-after">
+            <div class="example before">
+                <h4>Before</h4>
+                <p><strong>Title:</strong> Vintage Lamp Old Lamp Retro Lamp Desk Lamp Green Lamp Antique Lamp Banker Lamp</p>
+                <p><strong>Description:</strong> Old green desk lamp. Works fine. Some wear. Good condition for its age.</p>
+            </div>
+            <div class="example after">
+                <h4>After (QuickList AI)</h4>
+                <p><strong>Title:</strong> Vintage Emerald Green Banker's Lamp &mdash; 1950s Brass Base, Working Condition</p>
+                <p><strong>Description:</strong> Classic American banker's desk lamp, circa 1950s. Features an emerald green glass shade with rolled edges and a solid brass base with original pull-chain switch. Shade measures 13.5" wide. Light patina on brass consistent with age. Rewired with new UL-listed cord for safe daily use. No chips or cracks to glass...</p>
+            </div>
+        </div>
+
+        <h2>Cross-Listing Vintage Items: Etsy vs eBay vs Shopify</h2>
+
+        <h3>Etsy Vintage</h3>
+        <p>Etsy defines vintage as 20+ years old. Listings must be in the Vintage category, not Handmade. Use natural titles under 15 words with era and style terms. Fill all 13 tags with era keywords, style movements, and use-case terms ("home office decor," "statement lighting"). The "When was it made?" attribute is critical &mdash; be as specific as possible.</p>
+
+        <h3>eBay Vintage</h3>
+        <p>eBay is the largest vintage marketplace by volume. Complete every item specific: era, style, material, color, brand, country of manufacture, and condition. eBay's Cassini search engine heavily weights item specifics for vintage categories. Use eBay's condition grades (Used, Good, Very Good, Excellent, Like New) and supplement with detailed condition notes.</p>
+
+        <h3>Shopify Vintage Stores</h3>
+        <p>Running your own Shopify store for vintage gives you the best margins and full SEO control. Use era-specific keywords in URL slugs ("/mid-century-modern-teak-credenza"), write rich meta descriptions, and implement product schema with condition and material attributes for Google Shopping.</p>
+
+        <h3>Amazon Vintage</h3>
+        <p>Amazon's Collectibles and Fine Art categories accept vintage items. The listing requirements are strict &mdash; accurate condition grading and detailed descriptions are mandatory. Amazon's buyer protection policies mean condition accuracy is especially important to avoid A-to-Z claims.</p>
+
+        <h2>Photography Tips for Vintage Listings</h2>
+        <p>Your photos work hand-in-hand with your description. Vintage-specific photography tips:</p>
+        <ul>
+            <li><strong>Photograph every flaw</strong> mentioned in your condition description. Buyers want visual proof of the "small chip on base rim."</li>
+            <li><strong>Include maker's marks, stamps, and labels.</strong> These authenticate the item and are often the first thing knowledgeable buyers check.</li>
+            <li><strong>Show scale</strong> with a common object or ruler. Vintage items often surprise buyers with their size.</li>
+            <li><strong>Capture patina and wear honestly.</strong> Don't over-edit. Authentic-looking photos build trust; overly filtered photos raise suspicion.</li>
+            <li><strong>Style contextually.</strong> A mid-century lamp photographed on a mid-century desk tells a visual story that a white-background photo doesn't.</li>
+        </ul>
+
+        <h2>How QuickList AI Optimizes Vintage Listings</h2>
+        <ul>
+            <li>Generates era-specific titles with proper design movement terminology</li>
+            <li>Creates detailed condition descriptions using standard grading language</li>
+            <li>Distributes era, style, and material keywords across title, tags, and description</li>
+            <li>Formats listings per marketplace (Etsy tags, eBay item specifics, Shopify meta descriptions)</li>
+            <li>Includes measurement prompts and provenance fields that vintage buyers expect</li>
+        </ul>
+
+        <div class="cta-box">
+            <h2>Try the Vintage Listing Generator</h2>
+            <p>Generate optimized vintage listings for Etsy, eBay, Shopify, and Amazon &mdash; free. Era-specific keywords, proper condition grading, and cross-marketplace formatting.</p>
+            <a href="https://boudydegeer.github.io/quicklist-ai/generate" class="cta-btn">Generate Vintage Listings &rarr;</a>
+        </div>
+
+        <hr>
+        <p><em>QuickList AI helps vintage sellers create optimized listings for every marketplace &mdash; all from one product input. No signup required for your first listings.</em></p>
+    </article>
+
+    <footer>
+        &copy; 2026 QuickList AI. All rights reserved.
+    </footer>
+</body>
+</html>

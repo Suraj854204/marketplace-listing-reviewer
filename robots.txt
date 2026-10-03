@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boudydegeer.github.io/quicklist-ai/sitemap.xml
